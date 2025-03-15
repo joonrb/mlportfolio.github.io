@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My ML Portfolio - Projects</title>
+  <title>Jun Lee's ML Portfolio - Projects</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -47,18 +47,43 @@
       text-align: justify;
     }
     
-    .download-btn {
+    .download-actions {
+      display: flex;
+      gap: 20px; /* Increased spacing between buttons */
+      margin-top: 20px;
+    }
+    
+    .download-btn, .paper-btn {
       display: inline-block;
-      padding: 8px 16px;
-      background-color: #0066cc;
+      padding: 10px 20px;
+      min-width: 180px; /* Set fixed width for buttons */
+      text-align: center;
       color: white;
       text-decoration: none;
       border-radius: 4px;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .download-btn {
+      background-color: #0066cc;
     }
     
     .download-btn:hover {
       background-color: #0052a3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    }
+    
+    .paper-btn {
+      background-color: #cc6600;
+    }
+    
+    .paper-btn:hover {
+      background-color: #a35200;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
     }
     
     /* Modal styles for image viewing */
@@ -95,13 +120,22 @@
       .project-images {
         grid-template-columns: 1fr; /* One column on small screens */
       }
+      
+      .download-actions {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .download-btn, .paper-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Fixed Navigation Bar -->
   <header class="navbar">
-    <div class="logo"><a href="index.html">My ML Portfolio</a></div>
+    <div class="logo"><a href="index.html">Jun Lee's ML Portfolio</a></div>
     <nav>
       <a href="index.html">About Me</a>
       <a href="projects.html">Projects</a>
@@ -124,7 +158,9 @@
             <img class="project-image" src="p1lrplots/OLS prediction plot.png" alt="OLS Prediction">
           </div>
           <p class="project-description">This project demonstrates various linear regression techniques on the Boston housing dataset to predict house prices. It uses K-Fold cross-validation to compute average training and test mean squared errors (MSE) for each model, including Ordinary Least Squares, Ridge (with and without polynomial features), Lasso, and Elastic Net. It also implements both analytical solutions (via the normal equation) and gradient-based methods. By comparing the resulting MSEs, we can see how regularization (Ridge, Lasso, Elastic Net) and polynomial expansions affect model performance. Finally, the code visualizes each model's predictions versus the actual housing prices on a separate train-test split and provides a bar chart summarizing and comparing each model's training and test performance.</p>
-          <a href="projectFiles/projOneLinearRegression.ipynb" download="projOneLinearRegression.ipynb" class="download-btn">Download Notebook</a>
+          <div class="download-actions">
+            <a href="projectFiles/projOneLinearRegression.ipynb" download="projOneLinearRegression.ipynb" class="download-btn">Download Notebook</a>
+          </div>
         </div>
         
         <!-- Logistic Regression -->
@@ -137,7 +173,9 @@
             <img class="project-image" src="p2logrplots/Logistic Regression Scatter plot.png" alt="Logistic Regression Scatter Plot">
           </div>
           <p class="project-description">This project implements logistic regression from scratch on the Breast Cancer Wisconsin dataset. It uses gradient descent to learn the weight parameters that best separate malignant and benign tumors. After training, the model's performance is evaluated by calculating precision, recall, F1 score, and a confusion matrix. The code also visualizes the confusion matrix in a heatmap and plots an ROC curve to show how well the model distinguishes between classes across different probability thresholds, with the AUC giving a one-number summary of this separability. Finally, the project includes hyperparameter tuning to find the best learning rate, number of epochs, and decision threshold, thereby demonstrating how these factors affect model performance.</p>
-          <a href="projectFiles/projTwoLogisticRegression.ipynb" download="projTwoLogisticRegression.ipynb" class="download-btn">Download Notebook</a>
+          <div class="download-actions">
+            <a href="projectFiles/projTwoLogisticRegression.ipynb" download="projTwoLogisticRegression.ipynb" class="download-btn">Download Notebook</a>
+          </div>
         </div>
         
         <!-- SVM -->
@@ -149,7 +187,9 @@
             <img class="project-image" src="p3SVMplots/SVM Loss Function plot.png" alt="SVM Loss Function">
           </div>
           <p class="project-description">This project implements a Support Vector Machine (SVM) from scratch using gradient descent (and mini-batch gradient descent) to learn the model's parameters. It generates a synthetic 3D dataset, splits it into training and test sets, and trains an SVM to separate two classes (labelled +1 and -1). By computing a hinge-loss–like objective function, it updates the weight vector w and bias b to maximize the margin between classes while minimizing misclassifications. The code then visualizes the trained model's decision boundary and margins in both 2D and 3D space, evaluates its accuracy on the test set, and plots the training loss as it changes over iterations.</p>
-          <a href="projectFiles/projThreeSVM.ipynb" download="projThreeSVM.ipynb" class="download-btn">Download Notebook</a>
+          <div class="download-actions">
+            <a href="projectFiles/projThreeSVM.ipynb" download="projThreeSVM.ipynb" class="download-btn">Download Notebook</a>
+          </div>
         </div>
         
         <!-- Decision Tree -->
@@ -160,7 +200,9 @@
             <img class="project-image" src="p4DTplots/Decision Tree Plot2.png" alt="Decision Tree Performance">
           </div>
           <p class="project-description">This project builds a custom decision tree classifier from scratch (using concepts similar to ID3), applies it to two different datasets (Iris and Spam), and evaluates performance via 10-fold cross-validation. Specifically, it compares accuracy across varying values of n_min, which represents the minimum number of samples required to continue splitting the tree. By experimenting with different n_min settings, the project explores how limiting the tree's growth affects accuracy on training and test folds. Finally, it visualizes both the resulting decision tree structure and the accuracy trends as n_min changes for each dataset.</p>
-          <a href="projectFiles/projFourDecisionTrees.ipynb" download="projFourDecisionTrees.ipynb" class="download-btn">Download Notebook</a>
+          <div class="download-actions">
+            <a href="projectFiles/projFourDecisionTrees.ipynb" download="projFourDecisionTrees.ipynb" class="download-btn">Download Notebook</a>
+          </div>
         </div>
         
         <!-- K-means Clustering -->
@@ -173,17 +215,19 @@
             <img class="project-image" src="p5CMplots/Hierarchy Cluster Dendrogram.png" alt="Hierarchical Clustering Dendrogram">
           </div>
           <p class="project-description">This project demonstrates a clustering approach using multiple techniques. It implements K-means clustering (with both random and k++ centroid initialization), applying it to synthetic data, an image (for image compression), and a retail dataset (Mall Customers). The k++ initialization is modified to use a fixed random seed for reproducible cluster centers. Finally, it includes an agglomerative clustering (Ward linkage) method to build a dendrogram for hierarchical clustering. This enables a comparison of how different clustering algorithms work and how initial conditions or linkages affect the resulting partitions.</p>
-          <a href="projectFiles/projFiveClustering.ipynb" download="projFiveClustering.ipynb" class="download-btn">Download Notebook</a>
+          <div class="download-actions">
+            <a href="projectFiles/projFiveClustering.ipynb" download="projFiveClustering.ipynb" class="download-btn">Download Notebook</a>
+          </div>
         </div>
         
         <!-- CNN for AI Images -->
         <div class="project-card">
           <h3>Using CNN to Classify AI Images</h3>
-          <div class="project-images">
-            <img class="project-image" src="p5CMplots/Kmeans image plot.png" alt="CNN Image Classification">
-          </div>
           <p class="project-description">This project implements a Convolutional Neural Network (CNN) to distinguish between "real" and "fake" images using Photo-Response Non-Uniformity (PRNU) noise features. It first extracts PRNU residuals (using a library sourced from Dr. Miroslav Goljan at Binghamton University), transforms them via the Fourier transform, normalizes the magnitudes, and trains a binary classifier to detect forgeries. The model architecture uses multiple convolutional layers, pooling, dropout, and data augmentation. Finally, it evaluates the trained model on a test set, displays example predictions, and plots training vs. validation accuracy and loss over epochs.</p>
-          <a href="projectFiles/projSixCnn.ipynb" download="projSixCnn.ipynb" class="download-btn">Download Notebook</a>
+          <div class="download-actions">
+            <a href="projectFiles/projSixCnn.ipynb" download="projSixCnn.ipynb" class="download-btn">Download Notebook</a>
+            <a href="JUN_LEE_CapstoneProject1_Fall2024.pdf" download="JUN_LEE_CapstoneProject1_Fall2024.pdf" class="paper-btn">Download Paper</a>
+          </div>
         </div>
       </div>
     </section>
