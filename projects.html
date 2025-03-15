@@ -6,6 +6,97 @@
   <title>My ML Portfolio - Projects</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .project-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    .project-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Force exactly 2 columns */
+      grid-gap: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .project-image {
+      width: 100%;
+      max-width: 100%;
+      max-height: 200px; /* Limit height */
+      object-fit: contain; /* Maintain aspect ratio */
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .project-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .project-grid {
+      display: block;
+    }
+    
+    .project-description {
+      margin-bottom: 15px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .download-btn:hover {
+      background-color: #0052a3;
+    }
+    
+    /* Modal styles for image viewing */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .project-images {
+        grid-template-columns: 1fr; /* One column on small screens */
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Fixed Navigation Bar -->
@@ -24,42 +115,111 @@
       <div class="project-grid">
         <!-- Linear Regression -->
         <div class="project-card">
-          <img src="placeholder_linear_regression.png" alt="Linear Regression Graph">
           <h3>Linear Regression</h3>
-          <a href="linear_regression.ipynb" download>Download Notebook</a>
+          <div class="project-images">
+            <img class="project-image" src="p1lrplots/Model Comparison Plot.png" alt="Linear Regression Model Comparison">
+            <img class="project-image" src="p1lrplots/Elastic Net prediction plot.png" alt="Elastic Net Prediction">
+            <img class="project-image" src="p1lrplots/Polynomial Regression prediction plot.png" alt="Polynomial Regression Prediction">
+            <img class="project-image" src="p1lrplots/Ridge Regression prediction plot.png" alt="Ridge Regression Prediction">
+            <img class="project-image" src="p1lrplots/OLS prediction plot.png" alt="OLS Prediction">
+          </div>
+          <p class="project-description">This project demonstrates various linear regression techniques on the Boston housing dataset to predict house prices. It uses K-Fold cross-validation to compute average training and test mean squared errors (MSE) for each model, including Ordinary Least Squares, Ridge (with and without polynomial features), Lasso, and Elastic Net. It also implements both analytical solutions (via the normal equation) and gradient-based methods. By comparing the resulting MSEs, we can see how regularization (Ridge, Lasso, Elastic Net) and polynomial expansions affect model performance. Finally, the code visualizes each model's predictions versus the actual housing prices on a separate train-test split and provides a bar chart summarizing and comparing each model's training and test performance.</p>
+          <a href="projectFiles/projOneLinearRegression.ipynb" download="projOneLinearRegression.ipynb" class="download-btn">Download Notebook</a>
         </div>
+        
         <!-- Logistic Regression -->
         <div class="project-card">
-          <img src="placeholder_logistic_regression.png" alt="Logistic Regression Graph">
           <h3>Logistic Regression</h3>
-          <a href="logistic_regression.ipynb" download>Download Notebook</a>
+          <div class="project-images">
+            <img class="project-image" src="p2logrplots/Logistic Regression ROC plot.png" alt="Logistic Regression ROC Curve">
+            <img class="project-image" src="p2logrplots/Logistic Regression Log loss plot.png" alt="Logistic Regression Log Loss">
+            <img class="project-image" src="p2logrplots/Logistic Regression CM plot.png" alt="Logistic Regression Confusion Matrix">
+            <img class="project-image" src="p2logrplots/Logistic Regression Scatter plot.png" alt="Logistic Regression Scatter Plot">
+          </div>
+          <p class="project-description">This project implements logistic regression from scratch on the Breast Cancer Wisconsin dataset. It uses gradient descent to learn the weight parameters that best separate malignant and benign tumors. After training, the model's performance is evaluated by calculating precision, recall, F1 score, and a confusion matrix. The code also visualizes the confusion matrix in a heatmap and plots an ROC curve to show how well the model distinguishes between classes across different probability thresholds, with the AUC giving a one-number summary of this separability. Finally, the project includes hyperparameter tuning to find the best learning rate, number of epochs, and decision threshold, thereby demonstrating how these factors affect model performance.</p>
+          <a href="projectFiles/projTwoLogisticRegression.ipynb" download="projTwoLogisticRegression.ipynb" class="download-btn">Download Notebook</a>
         </div>
+        
         <!-- SVM -->
         <div class="project-card">
-          <img src="placeholder_svm.png" alt="SVM Graph">
-          <h3>SVM</h3>
-          <a href="svm.ipynb" download>Download Notebook</a>
+          <h3>Support Vector Machines (SVM)</h3>
+          <div class="project-images">
+            <img class="project-image" src="p3SVMplots/SVM 2D plot.png" alt="SVM 2D Plot">
+            <img class="project-image" src="p3SVMplots/SVM 3D plot.png" alt="SVM 3D Plot">
+            <img class="project-image" src="p3SVMplots/SVM Loss Function plot.png" alt="SVM Loss Function">
+          </div>
+          <p class="project-description">This project implements a Support Vector Machine (SVM) from scratch using gradient descent (and mini-batch gradient descent) to learn the model's parameters. It generates a synthetic 3D dataset, splits it into training and test sets, and trains an SVM to separate two classes (labelled +1 and -1). By computing a hinge-loss–like objective function, it updates the weight vector w and bias b to maximize the margin between classes while minimizing misclassifications. The code then visualizes the trained model's decision boundary and margins in both 2D and 3D space, evaluates its accuracy on the test set, and plots the training loss as it changes over iterations.</p>
+          <a href="projectFiles/projThreeSVM.ipynb" download="projThreeSVM.ipynb" class="download-btn">Download Notebook</a>
         </div>
+        
         <!-- Decision Tree -->
         <div class="project-card">
-          <img src="placeholder_decision_tree.png" alt="Decision Tree Graph">
-          <h3>Decision Tree</h3>
-          <a href="decision_tree.ipynb" download>Download Notebook</a>
+          <h3>Decision Trees</h3>
+          <div class="project-images">
+            <img class="project-image" src="p4DTplots/Decision Tree Plot.png" alt="Decision Tree Visualization">
+            <img class="project-image" src="p4DTplots/Decision Tree Plot2.png" alt="Decision Tree Performance">
+          </div>
+          <p class="project-description">This project builds a custom decision tree classifier from scratch (using concepts similar to ID3), applies it to two different datasets (Iris and Spam), and evaluates performance via 10-fold cross-validation. Specifically, it compares accuracy across varying values of n_min, which represents the minimum number of samples required to continue splitting the tree. By experimenting with different n_min settings, the project explores how limiting the tree's growth affects accuracy on training and test folds. Finally, it visualizes both the resulting decision tree structure and the accuracy trends as n_min changes for each dataset.</p>
+          <a href="projectFiles/projFourDecisionTrees.ipynb" download="projFourDecisionTrees.ipynb" class="download-btn">Download Notebook</a>
         </div>
+        
         <!-- K-means Clustering -->
         <div class="project-card">
-          <img src="placeholder_kmeans.png" alt="K-means Clustering Graph">
           <h3>K-means Clustering</h3>
-          <a href="kmeans_clustering.ipynb" download>Download Notebook</a>
+          <div class="project-images">
+            <img class="project-image" src="p5CMplots/Kmeans plot.png" alt="K-means Clustering">
+            <img class="project-image" src="p5CMplots/Kmeans kpp init plot.png" alt="K-means with K++ Initialization">
+            <img class="project-image" src="p5CMplots/Kmeans image plot.png" alt="K-means Image Segmentation">
+            <img class="project-image" src="p5CMplots/Hierarchy Cluster Dendrogram.png" alt="Hierarchical Clustering Dendrogram">
+          </div>
+          <p class="project-description">This project demonstrates a clustering approach using multiple techniques. It implements K-means clustering (with both random and k++ centroid initialization), applying it to synthetic data, an image (for image compression), and a retail dataset (Mall Customers). The k++ initialization is modified to use a fixed random seed for reproducible cluster centers. Finally, it includes an agglomerative clustering (Ward linkage) method to build a dendrogram for hierarchical clustering. This enables a comparison of how different clustering algorithms work and how initial conditions or linkages affect the resulting partitions.</p>
+          <a href="projectFiles/projFiveClustering.ipynb" download="projFiveClustering.ipynb" class="download-btn">Download Notebook</a>
         </div>
+        
         <!-- CNN for AI Images -->
         <div class="project-card">
-          <img src="placeholder_cnn.png" alt="CNN Graph">
           <h3>Using CNN to Classify AI Images</h3>
-          <a href="cnn_ai_images.ipynb" download>Download Notebook</a>
+          <div class="project-images">
+            <img class="project-image" src="p5CMplots/Kmeans image plot.png" alt="CNN Image Classification">
+          </div>
+          <p class="project-description">This project implements a Convolutional Neural Network (CNN) to distinguish between "real" and "fake" images using Photo-Response Non-Uniformity (PRNU) noise features. It first extracts PRNU residuals (using a library sourced from Dr. Miroslav Goljan at Binghamton University), transforms them via the Fourier transform, normalizes the magnitudes, and trains a binary classifier to detect forgeries. The model architecture uses multiple convolutional layers, pooling, dropout, and data augmentation. Finally, it evaluates the trained model on a test set, displays example predictions, and plots training vs. validation accuracy and loss over epochs.</p>
+          <a href="projectFiles/projSixCnn.ipynb" download="projSixCnn.ipynb" class="download-btn">Download Notebook</a>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Modal for enlarged images -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <script>
+    // Get the modal
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.getElementsByClassName("modal-close")[0];
+    
+    // Add click functionality to show images in modal
+    document.querySelectorAll('.project-image').forEach(img => {
+      img.addEventListener('click', function() {
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+      });
+    });
+    
+    // Close the modal when clicking the × button
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // Close the modal when clicking outside the image
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>

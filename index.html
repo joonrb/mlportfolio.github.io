@@ -7,6 +7,93 @@
   <!-- Google Font for a modern look -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Decrease the height of the hero section */
+    .hero {
+      height: 30vh; /* Reduced from default height */
+      min-height: 200px;
+      margin-top: 60px; /* Add margin to prevent overlap with header */
+    }
+    
+    /* Style for the about section with image */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    
+    .profile-image {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+    
+    .about-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    /* Style for the courses list */
+    .courses-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 5px;
+    }
+    
+    .course-tag {
+      background-color: #f0f0f0;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    
+    .social-links {
+      margin: 20px 0;
+    }
+    
+    .social-links a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .social-links a:hover {
+      color: #004a99;
+    }
+    
+    .social-links a i {
+      margin-right: 5px;
+    }
+    
+    .introduction {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 15px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .profile-image {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 20px;
+        display: block;
+      }
+      
+      .about {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Fixed Navigation Bar -->
@@ -18,7 +105,7 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with reduced height -->
   <section class="hero">
     <div class="hero-content">
       <h1>Welcome to My Portfolio</h1>
@@ -28,19 +115,53 @@
 
   <!-- Main Content -->
   <main class="container">
+    <!-- About Section with Image moved to right -->
     <section class="about">
-      <h2>About Me</h2>
-      <p><strong>Name:</strong> [Your Name]</p>
-      <p><strong>School:</strong> [Your School Name]</p>
-      <p><strong>Past Courses:</strong> [List your courses here]</p>
-      <p>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-      </p>
-      <p>
-        <a class="button" href="resume.pdf" download>Download My Resume</a>
-      </p>
+      <div class="about-content">
+        <h2>About Me</h2>
+        <p><strong>Name:</strong> Jun Lee</p>
+        <p><strong>School:</strong> New York University</p>
+        
+        <!-- Introduction moved to About section -->
+        <div class="introduction">
+          <p>
+            I am a Computer Science student at NYU Abu Dhabi with a strong foundation in machine learning and software engineering. 
+            My experience includes developing machine learning models for cybersecurity competitions, healthcare applications, 
+            and interactive projects, driven by a passion for leveraging AI to solve real-world challenges.
+          </p>
+        </div>
+        
+        <p><strong>Past Courses:</strong></p>
+        <div class="courses-list">
+          <span class="course-tag">Data Structures</span>
+          <span class="course-tag">Algorithms</span>
+          <span class="course-tag">Operating Systems</span>
+          <span class="course-tag">Networks</span>
+          <span class="course-tag">Software Engineering</span>
+          <span class="course-tag">Applied Machine Learning</span>
+          <span class="course-tag">Database Management (NYU)</span>
+          <span class="course-tag">Computer Security (NYU)</span>
+          <span class="course-tag">Virtual Reality Research and Applications</span>
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/jun-lee-a7889a1a8/" target="_blank">
+            <i class="fab fa-linkedin"></i>LinkedIn
+          </a> |
+          <a href="https://github.com/joonrb?tab=repositories" target="_blank">
+            <i class="fab fa-github"></i>GitHub
+          </a>
+        </div>
+        <p>
+          <a class="button" href="resume.pdf" download>Download My Resume</a>
+        </p>
+      </div>
+      
+      <!-- Image now on the right -->
+      <img src="faceImage.JPG" alt="Jun Lee" class="profile-image">
     </section>
   </main>
+  
+  <!-- Add Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
